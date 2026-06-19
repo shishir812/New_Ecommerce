@@ -1,0 +1,13 @@
+*.pyc
+__pycache__/
+
+.env
+e_backend/.env
+e_backend/venv/
+e_backend/db.sqlite3
+e_backend/*.sqlite3
+e_backend/media/
+
+e_frontend/node_modules/
+e_frontend/dist/
+e_frontend/.env.local

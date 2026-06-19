@@ -1,0 +1,218 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="980" viewBox="0 0 1400 980">
+  <defs>
+    <style>
+      .bg { fill: #f7f9fc; }
+      .title { font: 700 30px Arial, sans-serif; fill: #172033; }
+      .subtitle { font: 14px Arial, sans-serif; fill: #607089; }
+      .table { fill: #ffffff; stroke: #ccd6e3; stroke-width: 1.5; rx: 8; }
+      .head { fill: #20314f; rx: 8; }
+      .headText { font: 700 16px Arial, sans-serif; fill: #ffffff; }
+      .field { font: 13px Consolas, monospace; fill: #223047; }
+      .muted { fill: #6b7a90; }
+      .pk { fill: #0f766e; font-weight: 700; }
+      .fk { fill: #b45309; font-weight: 700; }
+      .rel { stroke: #52667f; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+      .relText { font: 12px Arial, sans-serif; fill: #52667f; font-weight: 700; }
+      .note { font: 12px Arial, sans-serif; fill: #728197; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#52667f"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1400" height="980"/>
+  <text class="title" x="40" y="48">New Ecommerce Database Diagram</text>
+  <text class="subtitle" x="40" y="74">Generated from e_backend/shop/models.py</text>
+
+  <!-- User -->
+  <g transform="translate(40 120)">
+    <rect class="table" width="250" height="132"/>
+    <rect class="head" width="250" height="38"/>
+    <text class="headText" x="16" y="25">auth_user</text>
+    <text class="field pk" x="16" y="62">PK id</text>
+    <text class="field" x="16" y="84">username</text>
+    <text class="field" x="16" y="106">email</text>
+    <text class="field muted" x="16" y="128">Django auth model</text>
+  </g>
+
+  <!-- Profile -->
+  <g transform="translate(390 105)">
+    <rect class="table" width="280" height="180"/>
+    <rect class="head" width="280" height="38"/>
+    <text class="headText" x="16" y="25">Profile</text>
+    <text class="field pk" x="16" y="62">PK id</text>
+    <text class="field fk" x="16" y="84">FK user_id UNIQUE</text>
+    <text class="field" x="16" y="106">phone</text>
+    <text class="field" x="16" y="128">address</text>
+    <text class="field" x="16" y="150">city, postal_code</text>
+    <text class="field muted" x="16" y="172">created_at, updated_at</text>
+  </g>
+
+  <!-- Cart -->
+  <g transform="translate(390 345)">
+    <rect class="table" width="280" height="158"/>
+    <rect class="head" width="280" height="38"/>
+    <text class="headText" x="16" y="25">Cart</text>
+    <text class="field pk" x="16" y="62">PK id</text>
+    <text class="field fk" x="16" y="84">FK user_id UNIQUE NULL</text>
+    <text class="field" x="16" y="106">session_key</text>
+    <text class="field" x="16" y="128">is_active</text>
+    <text class="field muted" x="16" y="150">created_at, updated_at</text>
+  </g>
+
+  <!-- Order -->
+  <g transform="translate(390 600)">
+    <rect class="table" width="310" height="246"/>
+    <rect class="head" width="310" height="38"/>
+    <text class="headText" x="16" y="25">Order</text>
+    <text class="field pk" x="16" y="62">PK id</text>
+    <text class="field fk" x="16" y="84">FK user_id NULL</text>
+    <text class="field" x="16" y="106">customer_name, customer_phone</text>
+    <text class="field" x="16" y="128">shipping_address</text>
+    <text class="field" x="16" y="150">subtotal, shipping_fee</text>
+    <text class="field" x="16" y="172">total_amount</text>
+    <text class="field" x="16" y="194">status</text>
+    <text class="field" x="16" y="216">payment_method, payment_status</text>
+    <text class="field muted" x="16" y="238">notes, created_at, updated_at</text>
+  </g>
+
+  <!-- Category -->
+  <g transform="translate(790 105)">
+    <rect class="table" width="280" height="180"/>
+    <rect class="head" width="280" height="38"/>
+    <text class="headText" x="16" y="25">Category</text>
+    <text class="field pk" x="16" y="62">PK id</text>
+    <text class="field fk" x="16" y="84">FK parent_id NULL</text>
+    <text class="field" x="16" y="106">name UNIQUE</text>
+    <text class="field" x="16" y="128">slug UNIQUE</text>
+    <text class="field" x="16" y="150">is_active</text>
+    <text class="field muted" x="16" y="172">created_at, updated_at</text>
+  </g>
+
+  <!-- Product -->
+  <g transform="translate(790 380)">
+    <rect class="table" width="310" height="246"/>
+    <rect class="head" width="310" height="38"/>
+    <text class="headText" x="16" y="25">Product</text>
+    <text class="field pk" x="16" y="62">PK id</text>
+    <text class="field fk" x="16" y="84">FK category_id NULL</text>
+    <text class="field" x="16" y="106">name</text>
+    <text class="field" x="16" y="128">slug UNIQUE</text>
+    <text class="field" x="16" y="150">sku UNIQUE</text>
+    <text class="field" x="16" y="172">description</text>
+    <text class="field" x="16" y="194">price, stock</text>
+    <text class="field" x="16" y="216">status, is_active</text>
+    <text class="field muted" x="16" y="238">created_at, updated_at</text>
+  </g>
+
+  <!-- ProductImage -->
+  <g transform="translate(1150 120)">
+    <rect class="table" width="280" height="202"/>
+    <rect class="head" width="280" height="38"/>
+    <text class="headText" x="16" y="25">ProductImage</text>
+    <text class="field pk" x="16" y="62">PK id</text>
+    <text class="field fk" x="16" y="84">FK product_id</text>
+    <text class="field" x="16" y="106">image_url</text>
+    <text class="field" x="16" y="128">uploaded_image</text>
+    <text class="field" x="16" y="150">alt_text</text>
+    <text class="field" x="16" y="172">is_primary, sort_order</text>
+    <text class="field muted" x="16" y="194">created_at, updated_at</text>
+  </g>
+
+  <!-- CartItem -->
+  <g transform="translate(1150 380)">
+    <rect class="table" width="280" height="158"/>
+    <rect class="head" width="280" height="38"/>
+    <text class="headText" x="16" y="25">CartItem</text>
+    <text class="field pk" x="16" y="62">PK id</text>
+    <text class="field fk" x="16" y="84">FK cart_id</text>
+    <text class="field fk" x="16" y="106">FK product_id</text>
+    <text class="field" x="16" y="128">quantity</text>
+    <text class="field muted" x="16" y="150">UNIQUE(cart, product)</text>
+  </g>
+
+  <!-- OrderItem -->
+  <g transform="translate(790 720)">
+    <rect class="table" width="310" height="202"/>
+    <rect class="head" width="310" height="38"/>
+    <text class="headText" x="16" y="25">OrderItem</text>
+    <text class="field pk" x="16" y="62">PK id</text>
+    <text class="field fk" x="16" y="84">FK order_id</text>
+    <text class="field fk" x="16" y="106">FK product_id NULL</text>
+    <text class="field" x="16" y="128">product_name, product_sku</text>
+    <text class="field" x="16" y="150">unit_price</text>
+    <text class="field" x="16" y="172">quantity</text>
+    <text class="field muted" x="16" y="194">created_at, updated_at</text>
+  </g>
+
+  <!-- Payment -->
+  <g transform="translate(1150 610)">
+    <rect class="table" width="280" height="224"/>
+    <rect class="head" width="280" height="38"/>
+    <text class="headText" x="16" y="25">Payment</text>
+    <text class="field pk" x="16" y="62">PK id</text>
+    <text class="field fk" x="16" y="84">FK order_id</text>
+    <text class="field" x="16" y="106">method, gateway_name</text>
+    <text class="field" x="16" y="128">transaction_id</text>
+    <text class="field" x="16" y="150">amount, status</text>
+    <text class="field" x="16" y="172">gateway_session_key</text>
+    <text class="field" x="16" y="194">payment_date, paid_at</text>
+    <text class="field muted" x="16" y="216">gateway_response, timestamps</text>
+  </g>
+
+  <!-- Review -->
+  <g transform="translate(40 650)">
+    <rect class="table" width="280" height="202"/>
+    <rect class="head" width="280" height="38"/>
+    <text class="headText" x="16" y="25">Review</text>
+    <text class="field pk" x="16" y="62">PK id</text>
+    <text class="field fk" x="16" y="84">FK product_id</text>
+    <text class="field fk" x="16" y="106">FK user_id NULL</text>
+    <text class="field" x="16" y="128">customer_name</text>
+    <text class="field" x="16" y="150">rating 1..5</text>
+    <text class="field" x="16" y="172">comment, is_approved</text>
+    <text class="field muted" x="16" y="194">created_at, updated_at</text>
+  </g>
+
+  <!-- Relationships -->
+  <path class="rel" d="M 290 166 C 325 166, 345 166, 390 166"/>
+  <text class="relText" x="309" y="155">1 to 1</text>
+
+  <path class="rel" d="M 290 215 C 340 255, 340 390, 390 420"/>
+  <text class="relText" x="312" y="333">1 to 0..1</text>
+
+  <path class="rel" d="M 290 238 C 350 390, 340 690, 390 715"/>
+  <text class="relText" x="305" y="548">1 to many</text>
+
+  <path class="rel" d="M 180 650 C 180 560, 210 500, 790 502"/>
+  <text class="relText" x="310" y="552">Product to reviews</text>
+
+  <path class="rel" d="M 180 650 C 170 515, 160 300, 290 190"/>
+  <text class="relText" x="60" y="485">User to reviews</text>
+
+  <path class="rel" d="M 930 285 C 930 325, 930 345, 930 380"/>
+  <text class="relText" x="944" y="341">1 to many</text>
+
+  <path class="rel" d="M 1070 178 C 1110 178, 1120 190, 1150 205"/>
+  <text class="relText" x="1090" y="170">self</text>
+
+  <path class="rel" d="M 1100 438 C 1130 430, 1135 425, 1150 420"/>
+  <text class="relText" x="1108" y="411">1 to many</text>
+
+  <path class="rel" d="M 790 475 C 735 470, 715 445, 670 430"/>
+  <text class="relText" x="700" y="444">cart items</text>
+
+  <path class="rel" d="M 700 720 C 735 750, 755 760, 790 770"/>
+  <text class="relText" x="716" y="733">1 to many</text>
+
+  <path class="rel" d="M 1100 812 C 1130 815, 1135 790, 1150 745"/>
+  <text class="relText" x="1105" y="850">order payments</text>
+
+  <path class="rel" d="M 945 626 C 945 670, 945 690, 945 720"/>
+  <text class="relText" x="960" y="682">product sold</text>
+
+  <path class="rel" d="M 700 740 C 760 655, 745 535, 790 505"/>
+  <text class="relText" x="705" y="621">order products</text>
+
+  <text class="note" x="40" y="930">Legend: PK = primary key, FK = foreign key, UNIQUE = unique constraint. All concrete shop models inherit created_at and updated_at from TimeStampedModel.</text>
+</svg>
