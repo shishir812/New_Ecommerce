@@ -1,3 +1,13 @@
+screenshots/homepage.png
+screenshots/products.png
+screenshots/login.png
+screenshots/account-dashboard.png
+screenshots/admin-dashboard.png
+screenshots/orders.png
+screenshots/reviews.png
+screenshots/checkout.png
+
+
 # Full-Stack E-Commerce Platform
 
 A professional full-stack e-commerce application built with React, Django REST Framework, and PostgreSQL. The project includes a customer storefront, account-based checkout, order history, product reviews, and an administrative dashboard for catalog, order, customer, and inventory management.
